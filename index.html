@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Stop's</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <h1 id="heading">Stop Watch</h1>
+        <div class="Stop-Watch-container">
+            <!-- Contains Time To Be Displayed On The Dom -->
+            <p id="notification"></p>
+            <div class="Time-Display-Section">
+                <div id="hours">
+                    <p class="data">00</p>
+                </div>
+                <div id="minutes">
+                    <p class="data">00</p>
+                </div>
+                <div id="seconds">
+                    <p class="data">00</p>
+                </div>
+                <div id="milliseconds">
+                    <p class="data">00</p>
+                </div>
+            </div>
+            <!-- Contains All Necessary Buttons Which  Need To Have  -->
+            <div class="Event-Buttons">
+                <!-- the type of button can only be button submit and reset thats why use type button in both -->
+                <button id="start" type="button" class="button">START</button>
+                <button id="stop"  type="button" class="button">STOP</button>
+                <button id="reset" type="reset" class="button">RESET</button>
+            </div>
+        </div>
+<script src="script.js"></script>
+</body>
+</html>
