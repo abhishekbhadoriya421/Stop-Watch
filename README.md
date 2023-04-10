@@ -38,3 +38,4 @@ let setTimeOutId;
 
 **setTimeOutId**
 `setTimeOutId variable is used top the timmer`
+
