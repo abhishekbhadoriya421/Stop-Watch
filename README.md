@@ -152,7 +152,7 @@ let stopTimer = ()=>{
  
  #### reset Time
  
- ![](images/resetWatch.gif)
+ ![](images/restartWatch.gif)
  ``` js
  reset_btn.addEventListener('click',()=>{
         resetTimer(); 
