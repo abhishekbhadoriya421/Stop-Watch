@@ -1,7 +1,7 @@
 # Stop-Watch
 This is a stop watch application where we can perform all the task which can be performed in any other stop watch
 
-  ## Useage
+  ## Usage
   > Start :- clicking on start button we can start the count down 
 
   > Stop  :- clicking on stop button the count down will stop
