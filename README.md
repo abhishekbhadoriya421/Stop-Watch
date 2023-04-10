@@ -37,5 +37,57 @@ let setTimeOutId;
 `isAlreadyStart variable keeps track that is not StopWatch already running if it is false mean not running otherwise running`
 
 **setTimeOutId**
-`setTimeOutId variable is used top the timmer`
+`setTimeOutId variable is used top the timer`
+
+### start time function
+
+``` js
+  start_btn.addEventListener('click',()=>{
+      if(isAlreadyStart == false){
+          isAlreadyStart = true;
+          startTimer();
+          showMessage("Start","green");
+          stop_btn.style.cursor = 'pointer';
+      }else{
+          start_btn.style.cursor = 'not-allowed';
+          showMessage("Already Running", 'red');
+      }
+  });
+```
+` we have added a click eventListener on start_button when we click on start_btn it fires and start the time first it checks that is it already running or not if isAlreadyStart variable is false then we make isAlreadyStart to true, call the startTime function and  we make cursor poniter else we make cursor to not alowed and 
+call showMessage() function`
+
+``` js
+  let startTimer = ()=>{
+  setTimeOutId =  setInterval(()=>{
+          time[3]++;
+          timeConstraints();
+          PrintTheCount();
+      },10);
+  }
+```
+
+` In startTimer function we get the setTimeOutId and fire the setInterval function in setInterval function we increase the time[3] which points to mili-second in time array and call timeConstraints() function and PrintTheCount() function`
+
+``` js
+let timeConstraints = ()=>{
+
+    if(time[3]==100){ 
+        time[2]++;
+        time[3] = 0;
+    }
+    if(time[2]==60){
+        time[1]++;
+        time[2] = 0;
+    }
+    if(time[1]==60){
+        time[0]++;
+        time[1] = 0;
+    }
+
+    if(time[0]==25){
+        reset();
+    }
+}
+```
 
