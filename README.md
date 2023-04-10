@@ -39,7 +39,37 @@ let setTimeOutId;
 **setTimeOutId**
 `setTimeOutId variable is used top the timer`
 
-### start time function
+#### Print The Count
+``` js
+let PrintTheCount = ()=>{
+    time[0]<10 ? hours.textContent = '0'+time[0] : hours.textContent = time[0]; 
+    time[1]<10 ? minutes.textContent = '0'+time[1] : minutes.textContent = time[1];
+    time[2]<10 ? seconds.textContent = '0'+time[2] : seconds.textContent = time[2];
+    milliseconds.textContent = time[3];
+}
+```
+` In PrintTheCount function we are printing the time just hours.textContent = '0'+time[0] (this code is doing nothing just is the count is less than 10 then it is appending 0 before the count )`
+
+#### Show Message
+
+``` js
+function showMessage(message,color){
+    notification.textContent = message;
+    notification.style.width = '200px';
+    notification.style.color = color;
+    setTimeout(() => {
+        notification.style.width = '0px';
+        notification.textContent = "";
+        notification.style.color = 'black';
+    }, 2500);
+} 
+```
+
+`ShowMessage Function show all the Notification which we pass and also set color `
+
+####  start Timer
+
+![](images/startWatch.gif)
 
 ``` js
   start_btn.addEventListener('click',()=>{
@@ -69,6 +99,7 @@ call showMessage() function`
 
 ` In startTimer function we get the setTimeOutId and fire the setInterval function in setInterval function we increase the time[3] which points to mili-second in time array and call timeConstraints() function and PrintTheCount() function`
 
+#### Time Constraints 
 ``` js
 let timeConstraints = ()=>{
 
@@ -90,4 +121,59 @@ let timeConstraints = ()=>{
     }
 }
 ```
+` 
+In timeConstaints function we have define some constraints that how should we increase the time of mili-sec, sec, min, and hours if milisecond become 100 then we increase the second by one and if second become 60 then we increase the minutes by 1 and if minutes become to 60 then the hours increased by one
+`
 
+#### Stop Time
+
+![](images/stopWatch.gif)
+``` js
+stop_btn.addEventListener('click',()=>{
+    if(isAlreadyStart==true){
+        stopTimer();
+        showMessage("Stop","red");
+        start_btn.style.cursor = 'pointer';
+    }else{
+        stop_btn.style.cursor = 'not-allowed';
+        showMessage("Already Stopped", 'red');
+    }
+ });
+ ```
+ `When we click on stop_btn button then click event fires and in that we have checked that if timer is already so then we have to stop the timer so we call stopTimer() function other wise do nothing `
+ 
+ ``` js
+let stopTimer = ()=>{
+    clearInterval(setTimeOutId);
+    isAlreadyStart = false;
+}
+ ```
+ `stopTimer function just clear the Interval and set isAlreadyStart variable to false`
+ 
+ #### reset Time
+ 
+ ![](images/resetWatch.gif)
+ ``` js
+ reset_btn.addEventListener('click',()=>{
+        resetTimer(); 
+        showMessage("Reset","blue");
+        stop_btn.style.cursor = 'pointer';
+});
+```
+` this function fire's when we click on reset_btn in that function we are calling resetTimer() function and ater that fire the showMessage function`
+
+``` js
+let resetTimer = ()=>{
+    clearInterval(setTimeOutId);
+    time.fill(0);
+    milliseconds.textContent = '00';
+    seconds.textContent = '00';
+    minutes.textContent = '00';
+    hours.textContent = '00';  
+    isAlreadyStart = false;
+}
+```
+` In resetTimmer function we call clearInterval function and set all the time array Element value to 0 and also in DOM too`
+
+these are all the java script function which i have used to create the stopWatch application
+ 
